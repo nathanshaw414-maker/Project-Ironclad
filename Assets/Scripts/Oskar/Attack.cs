@@ -41,5 +41,9 @@ public class Attack : NetworkBehaviour
         health.takeDamage(20);
         
     }
- 
+    public void SetCamera(Camera cam)
+    {
+        mainCamera = cam;
+    }
+
 }

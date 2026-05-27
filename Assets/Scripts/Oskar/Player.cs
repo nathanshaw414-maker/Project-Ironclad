@@ -12,6 +12,7 @@ public class Player : NetworkBehaviour
     [SerializeField] Camera myCamera;
     [SerializeField] PlayerInput playerInput;
     [SerializeField] Attack playerAttack;
+    //[SerializeField] Animator animator;
 
 
     void OnMove(InputValue value)
@@ -38,11 +39,28 @@ public class Player : NetworkBehaviour
     {
         if (value.isPressed)
         {
-            
-            playerAttack.TargetRaycast();
+
+            //playerAttack.TargetRaycast();
+            characherController.attack();
         }
     }
 
+    void OnInteract(InputValue value)
+    { 
+        if (value.isPressed)
+        {
+            characherController.CmdPickup();
+        }
+    }
+
+    void OnDodge(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            characherController.TryDodge();
+            
+        }
+    }
  
 
     private void Start()
@@ -52,6 +70,7 @@ public class Player : NetworkBehaviour
         {
             if (!myCamera.enabled) { myCamera.enabled = true; };
             if (!playerInput.enabled) { playerInput.enabled = true; };
+            //if (!animator.enabled) { animator.enabled = true; };
         }
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

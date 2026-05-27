@@ -506,6 +506,7 @@ GameObject:
   - component: {fileID: 3273798475364869209}
   - component: {fileID: 1552285804958346213}
   - component: {fileID: 3139694282381423652}
+  - component: {fileID: 6393474704749653627}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -603,18 +604,28 @@ MonoBehaviour:
   syncInterval: 0
   Acceleration: 15
   walkSpeed: 3.5
-  sprintSpeed: 20
+  sprintSpeed: 15
+  slowDownSpeed: 2
+  slowDownSpeedRate: 30
+  slowingDownVelocity: 0
+  currentDodgeDuration: 0
+  dodgeDuration: 0.25
+  dodgeStrength: 20
   LookSensitivity: {x: 0.1, y: 0.1}
   Pitchlimit: 85
   currentPitch: 0
   Gravity: 3
   verticalVelocity: 0
+  IsGrounded: 0
   jumpHieght: 2
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   SprintInput: 0
   mainCamera: {fileID: 7397172941780676701}
   mainCharacterController: {fileID: 9090476349769982132}
+  equipment: {fileID: 6393474704749653627}
+  animator: {fileID: 0}
+  pickupRange: 4
 --- !u!114 &1360876737377480060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,3 +747,20 @@ MonoBehaviour:
   syncInterval: 0
   maxHealth: 100
   currentHealth: 100
+--- !u!114 &6393474704749653627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9212560131371921483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3afd358ef8e8c44a32a835cc5ebc4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Equipment
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  Weapon1: {fileID: 0}
+  Weapon2: {fileID: 0}
